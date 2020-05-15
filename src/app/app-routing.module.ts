@@ -11,8 +11,8 @@ const routes: Routes = [
   {path: 'home', component: UserListComponent}, 
   {path: 'user/list', component: UserListComponent}, 
   {path: 'user/create', component: UserCreateComponent}, 
-  {path: 'user/detail', component: UserDetailComponent},
-  {path: 'user/edit', component: UserEditComponent},
+  {path: 'user/detail/:id', component: UserDetailComponent},
+  {path: 'user/edit/:id', component: UserEditComponent},
 
   {path: '**', component: UserListComponent} 
 ];

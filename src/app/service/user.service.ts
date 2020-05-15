@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { User } from '../model/user.class';
 import { JsonResponse } from '../model/json-response.class';
+import { User } from '../model/user.class';
 
 
-const url: string ="http://localhost:4200/users";
+
+const url: string ="http://localhost:8080/users/";
 
 @Injectable({
   providedIn: 'root'
@@ -20,11 +21,11 @@ export class UserService {
   get(id:number): Observable<JsonResponse> {
     return this.http.get(url+id) as Observable<JsonResponse>;
   }
-  create(movie: User): Observable<JsonResponse> {
-    return this.http.post(url, User) as Observable<JsonResponse>;
+  create(user: User): Observable<JsonResponse> {
+    return this.http.post(url, user) as Observable<JsonResponse>;
   }
-  edit(movie: User): Observable<JsonResponse> {
-    return this.http.put(url, User) as Observable<JsonResponse>;
+  edit(user: User): Observable<JsonResponse> {
+    return this.http.put(url, user) as Observable<JsonResponse>;
   }
   delete(id:number): Observable<JsonResponse> {
     return this.http.delete(url+id) as Observable<JsonResponse>;

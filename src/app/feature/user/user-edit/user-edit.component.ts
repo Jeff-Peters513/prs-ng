@@ -25,11 +25,11 @@ export class UserEditComponent implements OnInit {
       this.user = jr.data as User;
     });
   }
-  save() {
+  edit() {
     this.userSvc.edit(this.user).subscribe(jr => {
       if (jr.errors == null) {
         //success
-        this.router.navigateByUrl("/user/list");
+        this.router.navigateByUrl("user/list");
       }
       else {
         console.log("***Error editing movie.", this.user, jr.errors);

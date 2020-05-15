@@ -8,7 +8,7 @@
                     ID:
                 </td>
                 <td>
-                    <input [(ngModel)]="user.id" class="rounded" type="text">
+                    <input [(ngModel)]="user.id" class="rounded" disabled>
                 </td>
             </tr>
             <tr>
@@ -16,7 +16,7 @@
                     User Name:
                 </td>
                 <td>
-                    <input [(ngModel)]="user.userName" class="rounded" type="number">
+                    <input [(ngModel)]="user.userName" class="rounded" type="text">
                 </td>
             </tr>
             <tr>
@@ -77,7 +77,7 @@
             </tr>
         </table>
     </main>
-    <span><button (click)="save()" class="btn btn-sm btn-primary">{{submitBtnTitle}}</button></span> |
+    <span><button (click)="edit()" class="btn btn-sm btn-primary">{{submitBtnTitle}}</button></span> |
     <!-- <span><button (click)="backClicked()" class="btn btn-sm btn-primary">Back</button></span> -->
 
 </div>
