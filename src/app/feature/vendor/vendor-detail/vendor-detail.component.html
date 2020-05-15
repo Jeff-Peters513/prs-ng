@@ -1,45 +1,54 @@
-<p>vendor-detail works!</p>
-<section class="heading">
-    <span class="page-title font-weight-bold font-italic">{{title}}</span>
-    <a routerLink="/vendor/list"> Return to list<span>
+<div *ngIf="vendor" class="component">
+    <section class="heading">
+        <span class="page-title font-weight-bold font-italic">{{title}}</span>
+        <span> | <a routerLink="/vendor/list">Return to List</a></span>
+    </section> 
+    <main class="single">
+        <table class="table table-sm">
+            <tr>
+                <td>ID</td>
+                <td>{{vendor.id}}</td>
+            </tr>
+            <tr>
+                <td>Vendor Code:</td>
+                <td><input [(ngModel)]="vendor.code" class="rounded" type="text" disabled></td>
+            </tr>
+            <tr>
+                <td>Name:</td>
+                <td><input [(ngModel)]="vendor.name" class="rounded" type="text" disabled></td>
+            </tr>
+            <tr>
+                <td>Address:</td>
+                <td><input [(ngModel)]="vendor.address" class="rounded" type="text" disabled></td>
+            </tr>
+            <tr>
+                <td>City:</td>
+                <td><input [(ngModel)]="vendor.city" class="rounded" type="text" disabled></td>
+            </tr>
+            <tr>
+                <td>State:</td>
+                <td><input [(ngModel)]="vendor.state" class="rounded" type="text" disabled></td>
+            </tr>
+            <tr>
+                <td>Zip Code:</td>
+                <td><input [(ngModel)]="vendor.zip" class="rounded" type="text" disabled></td>
+            </tr>
+            <tr>
+                <td>Phone Number:</td>
+                <td><input [(ngModel)]="vendor.phoneNumber" class="rounded" type="text" disabled></td>
+            </tr>
+            <tr>
+                <td>Email:</td>
+                <td><input [(ngModel)]="vendor.email" class="rounded" type="text" disabled></td>
+            </tr>
+                     
+        </table>
+    </main>  
+    <span>
+        <span><a routerLink="/vendor/edit/{{vendor.id}}" class="btn btn-sm btn-warning">Edit</a></span>
+        <span> | <button (click)="delete()" class="btn btn-sm btn-danger">Delete</button></span>
+    </span>
+        
+</div>
 
-</section>
-<table *ngIf="vendors" class="table table-sm table-striped">
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Vendor Code</th>
-            <th>Name</th>
-            <th>Address</th>
-            <th>City</th>
-            <th>State</th>
-            <th>Zip</th>
-            <th>Phone Number</th>
-            <th>Email</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let vendor of vendors">
-            <td>{{vendor.id}}</td>
-            <td>{{vendor.code}}</td>
-            <td>{{vendor.name}}</td>
-            <td>{{vendor.address}}</td>
-            <td>{{vendor.city}}</td>
-            <td>{{vendor.state}}</td>
-            <td>{{vendor.zip}}</td>
-            <td>{{vendor.phoneNumber}}</td>
-            <td>{{vendor.email}}</td>
-            <td>
-                <a routerLink='/vendor/detail/{{vendor.id}}'>
-                    <img width='20' height='20' src='assets/details.png' title="Vendor Details">
-                </a> |
-                <a routerLink='/vendor/edit/{{vendor.id}}'>
-                    <img width='20' height='20' src='assets/pencil-icon.png' title="Edit Vendor">
-                </a>
-            </td>
-        </tr>
 
-
-    </tbody>
-
-</table>
