@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/app/model/product.class';
 import { ProductService } from 'src/app/service/product.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+import { Vendor } from 'src/app/model/vendor.class';
+import { VendorService } from 'src/app/service/vendor.service';
 
 @Component({
   selector: 'app-product-create',
@@ -11,14 +13,20 @@ import { Router } from '@angular/router';
 export class ProductCreateComponent implements OnInit {
   title: string = "Product-Create";
   submitBtnTitle: string = "Create"
-
+  vendors: Vendor[]=[];
+  
   product: Product = new Product();
 
   constructor(private productSvc: ProductService,
+    private vendorSvc: VendorService,
     private router: Router) { }
 
   ngOnInit(): void {
-    //do nothing
+    //call for a list of vendors for the product create page
+    this.vendorSvc.list().subscribe( jr => {
+      this.vendors = jr.data as Vendor[];
+    });
+        
   }
   save() {
     this.productSvc.create(this.product).subscribe(jr => {

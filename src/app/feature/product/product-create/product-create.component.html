@@ -1,3 +1,4 @@
+<p *ngIf="!product">Loading...</p>
 <div *ngIf="product" class="component">
     <section class="heading">
         <span class="page-title font-weight-bold font-italic">{{title}}</span>
@@ -5,17 +6,20 @@
     </section> 
     <main class="single">
         <table class="table table-sm">
-            <tr>
+            <!-- <tr>
                 <td>ID</td>
                 <td>{{product.id}}</td>
-            </tr>
+            </tr> -->
             <tr>
                 <td>Vendor Name:</td>
-                <td><input [(ngModel)]="product.vendor.name" class="rounded" type="text"></td>
-            </tr>
+                <select [(ngModel)]="product.vendor" class="rounded">>
+                    <option *ngFor ="let vendor of vendors" [ngValue]='vendor'>{{vendor.name}}</option>
+                   
+                </select>
+                </tr>
             <tr>
                 <td>Vendor ID:</td>
-                <td><input [(ngModel)]="product.vendor.vendorid" class="rounded" type="text" disabled></td>
+                     <td><input [(ngModel)]="product.vendor.id" class="rounded" type="text" disabled></td>
             </tr>
             <tr>
                 <td>Part Number:</td>
