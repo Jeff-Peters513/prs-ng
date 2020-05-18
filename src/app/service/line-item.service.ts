@@ -15,8 +15,8 @@ export class LineItemService {
   
   //list should return only line items per request not all line items
   //special sort will be needed
-  list(): Observable<JsonResponse> {
-    return this.http.get(url) as Observable<JsonResponse>;
+  listAllLineItemPerPR(id: number): Observable<JsonResponse> {
+    return this.http.get(url+"/lines-for-pr/"+ id) as Observable<JsonResponse>;
   }
   get(id: number): Observable<JsonResponse> {
     return this.http.get(url + id) as Observable<JsonResponse>;

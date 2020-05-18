@@ -24,7 +24,7 @@
 
     <section class="heading">
         <span class="page-title font-weight-bold font-italic">{{titleLines}}</span>
-        <a routerLink="/request/create">
+        <a routerLink="/line-item-create/create">
             <img width='20' height='20' src='assets/add-icon.png' title="Add New">
         </a>
     </section>
@@ -40,21 +40,20 @@
             </tr>
         </thead>
         <tbody>
-            <p *ngIf='!lineItem'>No line items yet. Please create a new one!</p>
-            <tr *ngFor="let request of request">
-                <td>{{request.id}}</td>
-                <td>{{request.user.userName}}</td>
-                <td>{{request.description}}</td>
-                <td>{{request.justification}}</td>
-                <td>{{request.dateNeeded}}</td>
-                <td>{{request.deliveryMode}}</td>
+            <p *ngIf='!lineItems'>No line items yet. Please create a new one!</p>
+            <tr *ngFor="let lineItem of lineItems">
+                <td>{{lineItem.id}}</td>
+                <td>{{lineItem.product.name}}</td>
+                <td>{{lineItem.quantity}}</td>
+                <td>{{lineItem.product.price}}</td>
+                <td>{{lineItem.product.price * lineItem.quantity}}</td>
                 <td>
-                    <a routerLink='/request/detail/{{request.id}}'>
-                        <img width='20' height='20' src='assets/details.png' title="Request Details">
+                    <a routerLink='/line-item-edit/edit'>
+                        <img width='20' height='20' src='assets/pencil-icon.png' title="Edit Line Item">
                     </a> |
                     <a routerLink='/request/edit/{{request.id}}'>
-                        <img width='20' height='20' src='assets/pencil-icon.png' title="Edit Request">
-                    </a> |
+                        <img width='20' height='20' src='assets/delete.jpg' title="Delete Line Item">
+                    </a>
                 </td>
             </tr>
     
