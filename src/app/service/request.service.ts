@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { JsonResponse } from '../model/json-response.class';
+import { Request } from '../model/request.class';
+
 
 const url: string = "http://localhost:8080/requests/";
 
