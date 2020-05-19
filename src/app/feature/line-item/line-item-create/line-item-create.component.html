@@ -1,13 +1,13 @@
 <div>
     <section class="heading">
         <span class="page-title font-weight-bold font-italic">{{title}}</span>
-        <span> | <a routerLink="/request/line/requestId">Return to List</a></span>
+        <span> | <a routerLink="/request/line/{{requestId}}">Return to List</a></span>
     </section> 
     <main class="single">
         <table class="table table-sm">
              <tr>
                 <td>Purchase Request ID:</td>
-                     <td><input [(ngModel)]="lineItem.request.id" class="rounded" type="text" disabled></td>
+                    <td><input [(ngModel)]="lineItem.request.id" class="rounded" type="text" disabled></td>
             </tr>
             <tr>
                 <td>Product:</td>
@@ -24,7 +24,7 @@
         </table>
     </main>  
     <span>
-        <span><button (click)="save()" class="btn btn-sm btn-primary">{{submitBtnTitle}}</button></span> |
+        <span><button (click)="create()" class="btn btn-sm btn-primary">{{submitBtnTitle}}</button></span> |
     </span>
         
 </div>

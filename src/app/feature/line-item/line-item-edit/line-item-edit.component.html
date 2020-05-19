@@ -1,1 +1,30 @@
-<p>line-item-edit works!</p>
+<div>
+    <section class="heading">
+        <span class="page-title font-weight-bold font-italic">{{title}}</span>
+        <span> | <a routerLink="/request/line/{{requestId}}">Return to List</a></span>
+    </section> 
+    <main class="single">
+        <table class="table table-sm">
+            <tr>
+                <td>Product:</td>
+                <select [(ngModel)]="lineItem.product" class="rounded">>
+                    <option *ngFor ="let product of products" [ngValue]='product'>{{product.name}}</option>
+                   
+                </select>
+            </tr> 
+            <tr>
+                <td>Quantity:</td>
+                <td><input [(ngModel)]="lineItem.quantity" class="rounded" type="number"></td>
+            </tr>
+                              
+        </table>
+    </main>  
+    <span>
+        <span><button (click)="edit()" class="btn btn-sm btn-primary">{{submitBtnTitle}}</button></span> |
+    </span>
+        
+</div>
+
+
+
+

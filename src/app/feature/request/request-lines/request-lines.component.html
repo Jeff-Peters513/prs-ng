@@ -24,7 +24,7 @@
 
     <section class="heading">
         <span class="page-title font-weight-bold font-italic">{{titleLines}}</span>
-        <a routerLink="/line-item-create/create">
+        <a routerLink="/line-item/create/{{request.id}}">
             <img width='20' height='20' src='assets/add-icon.png' title="Add New">
         </a>
     </section>
@@ -48,10 +48,10 @@
                 <td>{{lineItem.product.price}}</td>
                 <td>{{lineItem.product.price * lineItem.quantity}}</td>
                 <td>
-                    <a routerLink='/line-item-edit/edit'>
+                    <a routerLink='/line-item/edit/{{lineItem.id}}'>
                         <img width='20' height='20' src='assets/pencil-icon.png' title="Edit Line Item">
                     </a> |
-                    <a routerLink='/request/edit/{{request.id}}'>
+                    <a routerLink='/line-item/delete/{{lineItem.id}}'>
                         <img width='20' height='20' src='assets/delete.jpg' title="Delete Line Item">
                     </a>
                 </td>

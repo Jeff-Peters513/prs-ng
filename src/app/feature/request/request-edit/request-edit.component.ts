@@ -39,7 +39,7 @@ export class RequestEditComponent implements OnInit {
     this.requestSvc.edit(this.request).subscribe(jr => {
       if (jr.errors == null) {
         //success
-        this.router.navigateByUrl("request/list");
+        this.router.navigateByUrl("/request/lines/"+ this.requestId);
       }
       else {
         console.log("***Error editing request.", this.request, jr.errors);
