@@ -11,7 +11,7 @@
             </tr>
             <tr>
                 <td>Product:</td>
-                <select [(ngModel)]="lineItem.product" class="rounded">>
+                <select [(ngModel)]="lineItem.product" class="rounded">
                     <option *ngFor ="let product of products" [ngValue]='product'>{{product.name}}</option>
                    
                 </select>

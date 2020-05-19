@@ -20,6 +20,7 @@ import { UserLoginComponent } from './feature/user/user-login/user-login.compone
 import { LineItemCreateComponent } from './feature/line-item/line-item-create/line-item-create.component';
 import { LineItemEditComponent } from './feature/line-item/line-item-edit/line-item-edit.component';
 import { RequestLinesComponent } from './feature/request/request-lines/request-lines.component';
+import { RequestReviewComponent } from './feature/request/request-review/request-review.component';
 
 
 const routes: Routes = [
@@ -44,9 +45,9 @@ const routes: Routes = [
   {path: 'request/detail/:id', component: RequestDetailComponent},
   {path: 'request/edit/:id', component: RequestEditComponent},
   {path: 'request/lines/:id', component: RequestLinesComponent},
-  {path: 'request/lines/linesItemDel/:id/:liId', component: RequestLinesComponent},
-  ///request-lines/lineItemDel/{{request.id}}/{{lineItem.id}}
+  {path: 'request/review', component: RequestReviewComponent},
   
+
   {path: 'line-item/create/:id', component: LineItemCreateComponent},
   {path: 'line-item/edit/:id', component: LineItemEditComponent},
 

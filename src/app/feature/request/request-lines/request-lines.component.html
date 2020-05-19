@@ -54,14 +54,11 @@
                     <button (click)="delete(lineItem.id)" style="border:none;">
                         <img width='20' height='20' src='assets/delete.jpg' title='Delete Line Item'>
                     </button>
-                    <!-- <a routerLink='/request-lines/lineItemDel/{{request.id}}/{{lineItem.id}}'>
-                        <img width='20' height='20' src='assets/delete.jpg' title="Delete Line Item">
-                        <span> <button (click)="delete(lineItem)" class="btn btn-sm btn-danger">Delete</button></span>
-                    </a> -->
                 </td>
-            </tr>
-    
-    
+            </tr>    
         </tbody>
+        <span>
+            <span><a routerLink="/request/review" class="btn btn-sm btn-warning">{{submitBtnForRev}}</a></span>
+        </span>
     
     </table>

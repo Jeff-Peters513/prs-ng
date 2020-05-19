@@ -14,7 +14,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class LineItemEditComponent implements OnInit {
   title: string = "PurchaseRequestLineItem Edit";
-  submitBtnTitle: string = "Change"
+  submitBtnTitle: string = "Edit"
   quantity: number;
   products: Product[] = [];
   lineItem: LineItem = new LineItem();
@@ -31,32 +31,34 @@ export class LineItemEditComponent implements OnInit {
 
 
   ngOnInit(): void {
-   //get id from the router
-   this.route.params.subscribe(parms => this.requestId = parms['id']);
-   console.log("requestId = " +this.requestId);
-   this.route.params.subscribe(parms => this.lineItemId = parms['id']);
-   console.log("lineItemId = " +this.lineItemId);
-   //get request for requestID
-   this.requestSvc.get(this.requestId).subscribe(jr => {
-     this.lineItem.request = jr.data as Request;
-     //set request in lineItem
-   });
-   //call for a list of products for the line-item create page
-   this.productSvc.list().subscribe(jr => {
-     this.products = jr.data as Product[];
-   });
- }
+    //get id from the router
+    this.route.params.subscribe(parms => this.lineItemId = parms['id']);
+    console.log("lineItemId = " + this.lineItemId);
+    //get line Item for lineItemID
+    this.lineItemSvc.get(this.lineItemId).subscribe(jr => {
+      this.lineItem = jr.data as LineItem;
+    });
+    console.log("");
+
+    //call for a list of products for the line-item edit page
+    this.productSvc.list().subscribe(jr => {
+      this.products = jr.data as Product[];
+    });
+  }
 
   edit() {
     this.lineItemSvc.edit(this.lineItem).subscribe(jr => {
       if (jr.errors == null) {
         //success
-        this.router.navigateByUrl("/request/lines/"+ this.requestId);
+        this.router.navigateByUrl("/request/lines/" + this.lineItem.request.id);
       }
       else {
         console.log("***Error editing line item.", this.lineItem, jr.errors);
       }
     });
+  }
+  compProduct(a: Product, b: Product): boolean {
+    return a && b && a.id === b.id;
   }
 
 }
