@@ -44,6 +44,8 @@ const routes: Routes = [
   {path: 'request/detail/:id', component: RequestDetailComponent},
   {path: 'request/edit/:id', component: RequestEditComponent},
   {path: 'request/lines/:id', component: RequestLinesComponent},
+  {path: 'request/lines/linesItemDel/:id/:liId', component: RequestLinesComponent},
+  ///request-lines/lineItemDel/{{request.id}}/{{lineItem.id}}
   
   {path: 'line-item/create/:id', component: LineItemCreateComponent},
   {path: 'line-item/edit/:id', component: LineItemEditComponent},

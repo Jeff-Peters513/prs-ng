@@ -51,9 +51,13 @@
                     <a routerLink='/line-item/edit/{{lineItem.id}}'>
                         <img width='20' height='20' src='assets/pencil-icon.png' title="Edit Line Item">
                     </a> |
-                    <a routerLink='/line-item/delete/{{lineItem.id}}'>
+                    <button (click)="delete(lineItem.id)" style="border:none;">
+                        <img width='20' height='20' src='assets/delete.jpg' title='Delete Line Item'>
+                    </button>
+                    <!-- <a routerLink='/request-lines/lineItemDel/{{request.id}}/{{lineItem.id}}'>
                         <img width='20' height='20' src='assets/delete.jpg' title="Delete Line Item">
-                    </a>
+                        <span> <button (click)="delete(lineItem)" class="btn btn-sm btn-danger">Delete</button></span>
+                    </a> -->
                 </td>
             </tr>
     
