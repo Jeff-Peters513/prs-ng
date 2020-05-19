@@ -13,7 +13,7 @@ import { LineItemService } from 'src/app/service/line-item.service';
 export class RequestLinesComponent implements OnInit {
   title: string = "Request-Line-Item(s)";
   titleLines: string = "Line Items";
-  submitBtnForRev: string ="Submit for Review";
+  submitBtnForRev: string = "Submit for Review";
   requestId: number = 0;
   lineItemId: number = 0;
   request: Request = new Request();
@@ -28,12 +28,13 @@ export class RequestLinesComponent implements OnInit {
     //get id from the router
     this.route.params.subscribe(parms => this.requestId = parms['id']);
     console.log("requestID = " + this.requestId);
-    
+
     //get request for that requestId
     this.requestSvc.get(this.requestId).subscribe(
       jr => {
         this.request = jr.data as Request;
         console.log("Request found!", this.request);
+        console.log("Review status= ", this.request.status)
       });
     //get all lineItems per PR using requestId
     this.lineItemSvc.listAllLineItemPerPR(this.requestId).subscribe(
@@ -53,7 +54,7 @@ export class RequestLinesComponent implements OnInit {
             this.request = jr.data as Request;
             console.log("Request found!", this.request);
           });
-          //now add the lineItem for this purchase request only
+        //now add the lineItem for this purchase request only
         this.lineItemSvc.listAllLineItemPerPR(this.requestId).subscribe(
           jr => {
             this.lineItems = jr.data as LineItem[];
@@ -65,4 +66,29 @@ export class RequestLinesComponent implements OnInit {
       }
     });
   }
+  //submit for reveiw has to change the status from "new" to "Review"
+  //then show up on the reveiw list page for authorized users to approve etc..
+  setStatus() {
+    if (this.request.status == "New" || "new") {
+      this.request.status = "Review";
+      this.edit();
+    }else {
+      console.log("Error in changing Status to review!");
+    }
+  }
+    edit() {
+      this.requestSvc.edit(this.request).subscribe(jr => {
+        if (jr.errors == null) {
+          //success
+        }
+        else {
+          console.log("***Error updating to Review Status.", this.request, jr.errors);
+        }
+      });
+    } 
+  
+
+
+
+
 }

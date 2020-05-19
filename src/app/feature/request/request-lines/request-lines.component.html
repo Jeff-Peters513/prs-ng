@@ -58,7 +58,8 @@
             </tr>    
         </tbody>
         <span>
-            <span><a routerLink="/request/review" class="btn btn-sm btn-warning">{{submitBtnForRev}}</a></span>
+            <button (click)="setStatus()" class="btn btn-sm btn-warning">{{submitBtnForRev}}
+            </button>
         </span>
-    
+      <!-- <span><a routerLink="/request/review" class="btn btn-sm btn-warning">{{submitBtnForRev}}</a></span> -->
     </table>
