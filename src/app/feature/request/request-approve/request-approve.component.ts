@@ -14,7 +14,7 @@ export class RequestApproveComponent implements OnInit {
   title: string = "Purchase Request-Approve/Reject Page";
   titleLines: string = "Pruchase request Line Items";
   submitBtnForAppr: string = "Approve";
-  submitBtnForRejct: string = "Approve";
+  submitBtnForRejct: string = "Reason for Rejection";
   requestId: number = 0;
   lineItemId: number = 0;
   request: Request = new Request();
@@ -44,9 +44,19 @@ export class RequestApproveComponent implements OnInit {
         this.lineItems = jr.data as LineItem[];
         console.log("Line Items found!", this.lineItems);
       });
-
-
+  }
+  setApproved(){
+    if (this.request.status == "Review" || "review") {
+        this.request.status = "Approved";
+        this.router.navigateByUrl("request/review");      
+      }else {
+      console.log("Error in changing Status to Approved!");
+    }
+  }
+  
+  setReject(){
 
   }
+
 
 }

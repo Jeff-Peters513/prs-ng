@@ -1,8 +1,7 @@
-<p>request-approve works!</p>
 <div *ngIf="request" class="component">
     <section class="heading">
         <span class="page-title font-weight-bold font-italic">{{title}}</span>
-        <span> | <a routerLink="/request/list">Return to List</a></span>
+        <span> | <a routerLink="/request/review">Return to List</a></span>
     </section> 
     <main class="single">
         <table class="table table-sm">
@@ -51,7 +50,11 @@
             </tr>    
         </tbody>
         <span>
-            <button (click)="setStatus()" class="btn btn-sm btn-warning">{{submitBtnForAppr}}
+           <button (click)="setApproved()" class="btn btn-sm btn-primary">{{submitBtnForAppr}}
             </button>
         </span>
+        <span>
+            <button (click)="setReject()" class="btn btn-sm btn-warning">{{submitBtnForRejct}}
+             </button>
+         </span>
     </table>
