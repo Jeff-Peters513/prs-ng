@@ -16,7 +16,7 @@
             <tr>
                 <td>Product:
                     <select [(ngModel)]="lineItem.product" class="rounded" [compareWith]="compProduct">
-                        <option *ngFor = "let product of products" [ngValue]='product'>{{product.name}}</option>
+                        <option *ngFor="let product of products" [ngValue]='product'>{{product.name}}</option>
                     </select>
                 </td>
             </tr>
@@ -28,7 +28,6 @@
         </table>
     </main>
     <span>
-        <span><button (click)="edit()" class="btn btn-sm btn-primary">{{submitBtnTitle}}</button></span> |
+        <span><button (click)="edit()" class="btn btn-sm btn-primary">{{submitBtnTitle}}</button></span>
     </span>
-
 </div>

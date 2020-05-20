@@ -29,6 +29,7 @@ import { RequestLinesComponent } from './feature/request/request-lines/request-l
 import { RequestReviewComponent } from './feature/request/request-review/request-review.component';
 import { RequestApproveComponent } from './feature/request/request-approve/request-approve.component';
 import { WelcomeComponent } from './feature/welcome/welcome/welcome.component';
+import { HomeComponent } from './core/home/home/home.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { WelcomeComponent } from './feature/welcome/welcome/welcome.component';
     RequestLinesComponent,
     RequestReviewComponent,
     RequestApproveComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

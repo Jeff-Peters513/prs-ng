@@ -2,7 +2,7 @@
     <section class="heading">
         <span class="page-title font-weight-bold font-italic">{{title}}</span>
         <span> | <a routerLink="/request/list">Return to List</a></span>
-    </section> 
+    </section>
     <main class="single">
         <table class="table table-sm">
             <tr>
@@ -10,55 +10,55 @@
                 <td>Description:</td>
                 <td>Status:</td>
                 <td>Total:</td>
-                
+
             </tr>
             <tr>
                 <td>{{request.id}}</td>
                 <td>{{request.description}}</td>
                 <td>{{request.status}}</td>
                 <td>{{request.total | currency}}</td>
-            </tr>                                                 
+            </tr>
         </table>
-    </main> 
+    </main>
 </div>
 
-    <section class="heading">
-        <span class="page-title font-weight-bold font-italic">{{titleLines}}</span>
-        <a routerLink="/line-item/create/{{request.id}}">
-            <img width='20' height='20' src='assets/add-icon.png' title="Add New">
-        </a>
-    </section>
-    <table *ngIf="request" class="table table-sm table-striped">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Product</th>
-                <th>Quantity</th>
-                <th>Price</th>
-                <th>Line Total</th>
-                <th>Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            <p *ngIf='!lineItems'>No line items yet. Please create a new one!</p>
-            <tr *ngFor="let lineItem of lineItems">
-                <td>{{lineItem.id}}</td>
-                <td>{{lineItem.product.name}}</td>
-                <td>{{lineItem.quantity}}</td>
-                <td>{{lineItem.product.price | currency}}</td>
-                <td>{{lineItem.product.price * lineItem.quantity | currency}}</td>
-                <td>
-                    <a routerLink='/line-item/edit/{{lineItem.id}}'>
-                        <img width='20' height='20' src='assets/pencil-icon.png' title="Edit Line Item">
-                    </a> |
-                    <button (click)="delete(lineItem.id)" style="border:none;">
-                        <img width='20' height='20' src='assets/delete.jpg' title='Delete Line Item'>
-                    </button>
-                </td>
-            </tr>    
-        </tbody>
-        <span>
-            <button (click)="setStatus()" class="btn btn-sm btn-warning">{{submitBtnForRev}}
-            </button>
-        </span>
-    </table>
+<section class="heading">
+    <span class="page-title font-weight-bold font-italic">{{titleLines}}</span>
+    <a routerLink="/line-item/create/{{request.id}}">
+        <img width='20' height='20' src='assets/add-icon.png' title="Add New">
+    </a>
+</section>
+<table *ngIf="request" class="table table-sm table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Line Total</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <p *ngIf='!lineItems'>No line items yet. Please create a new one!</p>
+        <tr *ngFor="let lineItem of lineItems">
+            <td>{{lineItem.id}}</td>
+            <td>{{lineItem.product.name}}</td>
+            <td>{{lineItem.quantity}}</td>
+            <td>{{lineItem.product.price | currency}}</td>
+            <td>{{lineItem.product.price * lineItem.quantity | currency}}</td>
+            <td>
+                <a routerLink='/line-item/edit/{{lineItem.id}}'>
+                    <img width='20' height='20' src='assets/pencil-icon.png' title="Edit Line Item">
+                </a> |
+                <button (click)="delete(lineItem.id)" style="border:none;">
+                    <img width='20' height='20' src='assets/delete.jpg' title='Delete Line Item'>
+                </button>
+            </td>
+        </tr>
+    </tbody>
+    <span>
+        <button (click)="setStatus()" class="btn btn-sm btn-warning">{{submitBtnForRev}}
+        </button>
+    </span>
+</table>

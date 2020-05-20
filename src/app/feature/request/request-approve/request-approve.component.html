@@ -2,7 +2,7 @@
     <section class="heading">
         <span class="page-title font-weight-bold font-italic">{{title}}</span>
         <span> | <a routerLink="/request/review">Return to List</a></span>
-    </section> 
+    </section>
     <main class="single">
         <table class="table table-sm">
             <tr>
@@ -10,51 +10,53 @@
                 <td>Description:</td>
                 <td>Status:</td>
                 <td>Total:</td>
-                
+
             </tr>
             <tr>
                 <td>{{request.id}}</td>
                 <td>{{request.description}}</td>
                 <td>{{request.status}}</td>
                 <td>{{request.total | currency}}</td>
-            </tr>                                                 
+            </tr>
         </table>
-    </main> 
+    </main>
 </div>
 
-    <section class="heading">
-        <span class="page-title font-weight-bold font-italic">{{titleLines}}</span>        
-    </section>
-    <table *ngIf="request" class="table table-sm table-striped">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Product</th>
-                <th>Quantity</th>
-                <th>Price</th>
-                <th>Line Total</th>
-           
-            </tr>
-        </thead>
-        <tbody>
-            <p *ngIf='!lineItems'>No line items yet. Please create a new one!</p>
-            <tr *ngFor="let lineItem of lineItems">
-                <td>{{lineItem.id}}</td>
-                <td>{{lineItem.product.name}}</td>
-                <td>{{lineItem.quantity}}</td>
-                <td>{{lineItem.product.price| currency}}</td>
-                <td>{{lineItem.product.price * lineItem.quantity | currency}}</td>
-                <td>
-                   
-                </td>
-            </tr>    
-        </tbody>
-        <span>
-           <button (click)="setApproved()" class="btn btn-sm btn-primary">{{submitBtnForAppr}}
-            </button>
-        </span>
-        <span>
-            <button (click)="setReject()" class="btn btn-sm btn-warning">{{submitBtnForRejct}}
-             </button>
-         </span>
-    </table>
+<section class="heading">
+    <span class="page-title font-weight-bold font-italic">{{titleLines}}</span>
+</section>
+<table *ngIf="request" class="table table-sm table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Line Total</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <p *ngIf='!lineItems'>No line items yet. Please create a new one!</p>
+        <tr *ngFor="let lineItem of lineItems">
+            <td>{{lineItem.id}}</td>
+            <td>{{lineItem.product.name}}</td>
+            <td>{{lineItem.quantity}}</td>
+            <td>{{lineItem.product.price| currency}}</td>
+            <td>{{lineItem.product.price * lineItem.quantity | currency}}</td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+</table>
+<span>
+    <button (click)="setApproved()" class="btn btn-sm btn-primary">{{submitBtnForAppr}}
+    </button>
+</span>
+<p>
+    <button (click)="setReject()" class="btn btn-sm btn-warning">{{submitBtnForRejct}} </button>
+    <span>
+        <td><input [(ngModel)]="request.reasonForRejection" class="rounded" type="text"></td>
+    </span>
+</p>

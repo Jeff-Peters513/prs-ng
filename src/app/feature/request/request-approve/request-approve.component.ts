@@ -19,6 +19,7 @@ export class RequestApproveComponent implements OnInit {
   lineItemId: number = 0;
   request: Request = new Request();
   lineItems: LineItem[] = [];
+  reasonForRejection: string="";
 
 
   constructor(private requestSvc: RequestService,
@@ -46,8 +47,9 @@ export class RequestApproveComponent implements OnInit {
       });
   }
   setApproved(){
-    if (this.request.status == "Review" || "review") {
+    if (this.request.status == "Review") {
         this.request.status = "Approved";
+        this.edit();
         this.router.navigateByUrl("request/review");      
       }else {
       console.log("Error in changing Status to Approved!");
@@ -55,8 +57,25 @@ export class RequestApproveComponent implements OnInit {
   }
   
   setReject(){
-
+    if (this.request.status == "Review") {
+      this.request.status = "Rejected";
+      this.edit();
+      this.router.navigateByUrl("request/review");      
+    }else {
+    console.log("Error in changing Status to Rejected!");
   }
 
+  }
+  edit() {
+    this.requestSvc.edit(this.request).subscribe(jr => {
+      if (jr.errors == null) {
+        //success and re-route to request-list page
+        this.router.navigateByUrl("request/list");
+      }
+      else {
+        console.log("***Error updating to Review Status.", this.request, jr.errors);
+      }
+    });
 
+  }
 }

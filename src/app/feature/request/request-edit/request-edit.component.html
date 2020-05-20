@@ -3,39 +3,43 @@
     <section class="heading">
         <span class="page-title font-weight-bold font-italic">{{title}}</span>
         <span> | <a routerLink="/request/list">Return to List</a></span>
-    </section> 
+    </section>
     <main class="single">
-         <table class="table table-sm">
-                <tr>
-                    <td>Request ID #:</td>
-                    <td>{{request.id}}</td>
-                </tr>
-                <tr>
-                    <td>User Name:</td>
-                    <td><input [(ngModel)]="request.user.userName" class="rounded" type="text" disabled></td>
-                </tr>
-                <tr>
-                    <td>Description:</td>
-                    <td><input [(ngModel)]="request.description" class="rounded" type="text"></td>
-                </tr>
-                <tr>
-                    <td>Justification:</td>
-                    <td><input [(ngModel)]="request.justification" class="rounded" type="text" ></td>
-                </tr>
-                <tr>
-                    <td>Date Needed:</td>
-                    <td><input [(ngModel)]="request.dateNeeded" class="rounded" type="date" ></td>
-                </tr>
-                <tr>
-                    <td>Delivery Mode:</td>
-                    <td><input [(ngModel)]="request.deliveryMode" class="rounded" type="text" ></td>
-                </tr>
-               
-            </table>
-        </main>  
-    <span>
-        <span><button (click)="edit()" class="btn btn-sm btn-primary">{{submitBtnTitle}}</button></span> |
-    </span>
-        
-</div>
+        <table class="table table-sm">
+            <tr>
+                <td>Request ID #:</td>
+                <td>{{request.id}}</td>
+            </tr>
+            <tr>
+                <td>User Name:</td>
+                <td><input [(ngModel)]="request.user.userName" class="rounded" type="text" disabled></td>
+            </tr>
+            <tr>
+                <td>Description:</td>
+                <td><input [(ngModel)]="request.description" class="rounded" type="text"></td>
+            </tr>
+            <tr>
+                <td>Justification:</td>
+                <td><input [(ngModel)]="request.justification" class="rounded" type="text"></td>
+            </tr>
+            <tr>
+                <td>Date Needed:</td>
+                <td><input [(ngModel)]="request.dateNeeded" class="rounded" type="date"></td>
+            </tr>
+            <td>
+                Delivery Mode:
+            </td>
+            <td>
+                <select [(ngModel)]="request.deliveryMode" class="rounded">
+                    <option value="Mail">Mail</option>
+                    <option value="Pickup">Pickup</option>
+                </select>
+            </td>
 
+        </table>
+    </main>
+    <span>
+        <button (click)="edit()" class="btn btn-sm btn-primary">{{submitBtnTitle}}</button>
+    </span>
+
+</div>
