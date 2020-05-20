@@ -1,6 +1,8 @@
 <nav>
     
     <ul>
+        <li><img width='20' height='20' src='assets/purchaseList.svg' title="List"></li>
+        <li>PRS</li>
         <li *ngFor="let mi of menuItems" title={{mi.tooltip}}>
             <a routerLink="{{mi.href}}">{{mi.display}}</a>
         </li>

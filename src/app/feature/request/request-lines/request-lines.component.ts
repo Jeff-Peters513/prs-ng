@@ -49,17 +49,7 @@ export class RequestLinesComponent implements OnInit {
       if (jr.errors == null) {
         console.log("refreshing page ", jr.data);
         //refresh without item that was deleted
-        this.requestSvc.get(this.requestId).subscribe(
-          jr => {
-            this.request = jr.data as Request;
-            console.log("Request found!", this.request);
-          });
-        //now add the lineItem for this purchase request only
-        this.lineItemSvc.listAllLineItemPerPR(this.requestId).subscribe(
-          jr => {
-            this.lineItems = jr.data as LineItem[];
-            console.log("Line Items found!", this.lineItems);
-          });
+        this.router.navigateByUrl("request/lines/refresh/"+this.requestId);
       }
       else {
         console.log("*****Error deleting Line Item!", lineItemId, jr.errors);
@@ -70,16 +60,23 @@ export class RequestLinesComponent implements OnInit {
   //then show up on the reveiw list page for authorized users to approve etc..
   setStatus() {
     if (this.request.status == "New" || "new") {
-      this.request.status = "Review";
-      this.edit();
-    }else {
+      //ternary may work here and requires less typed code--try later  
+      if(this.request.total > 50.00){
+          this.request.status = "Review";
+          this.edit();
+        }else{
+          this.request.status = "Approved";
+          this.edit();
+        }
+      }else {
       console.log("Error in changing Status to review!");
     }
   }
     edit() {
       this.requestSvc.edit(this.request).subscribe(jr => {
         if (jr.errors == null) {
-          //success
+          //success and re-route to request-list page
+          this.router.navigateByUrl("request/list");
         }
         else {
           console.log("***Error updating to Review Status.", this.request, jr.errors);

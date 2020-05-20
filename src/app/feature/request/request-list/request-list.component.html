@@ -29,7 +29,7 @@
             <td>{{request.dateNeeded}}</td>
             <td>{{request.deliveryMode}}</td>
             <td>{{request.status}}</td>
-            <td>{{request.total}}</td>
+            <td>{{request.total | currency}}</td>
             <td>{{request.submittedDate}}</td>
             <td>{{request.reasonForRejection}}</td>
             <td>
@@ -49,3 +49,4 @@
     </tbody>
 
 </table>
+

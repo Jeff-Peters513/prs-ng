@@ -16,7 +16,7 @@
                 <td>{{request.id}}</td>
                 <td>{{request.description}}</td>
                 <td>{{request.status}}</td>
-                <td>{{request.total}}</td>
+                <td>{{request.total | currency}}</td>
             </tr>                                                 
         </table>
     </main> 
@@ -45,8 +45,8 @@
                 <td>{{lineItem.id}}</td>
                 <td>{{lineItem.product.name}}</td>
                 <td>{{lineItem.quantity}}</td>
-                <td>{{lineItem.product.price}}</td>
-                <td>{{lineItem.product.price * lineItem.quantity}}</td>
+                <td>{{lineItem.product.price | currency}}</td>
+                <td>{{lineItem.product.price * lineItem.quantity | currency}}</td>
                 <td>
                     <a routerLink='/line-item/edit/{{lineItem.id}}'>
                         <img width='20' height='20' src='assets/pencil-icon.png' title="Edit Line Item">
@@ -61,5 +61,4 @@
             <button (click)="setStatus()" class="btn btn-sm btn-warning">{{submitBtnForRev}}
             </button>
         </span>
-      <!-- <span><a routerLink="/request/review" class="btn btn-sm btn-warning">{{submitBtnForRev}}</a></span> -->
     </table>
