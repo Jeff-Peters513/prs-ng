@@ -16,10 +16,10 @@
             </tr>
             <tr>
                 <td>Product:
-                    <select [(ngModel)]="lineItem.product" class="rounded" [compareWith]="compProduct">
-                        <option *ngFor="let product of products" [ngValue]='product'>{{product.name}}</option>
-                    </select>
-                </td>
+
+                <td><select [(ngModel)]="lineItem.product" class="rounded" [compareWith]="compProduct">
+                        <option *ngFor="let product of products" [ngValue]='product'>{{product.name}} -|- {{product.vendor.name}}</option>
+                    </select></td>
             </tr>
             <tr>
                 <td>Quantity:</td>

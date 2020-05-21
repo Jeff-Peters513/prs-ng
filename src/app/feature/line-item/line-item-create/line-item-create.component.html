@@ -13,7 +13,7 @@
             <tr>
                 <td>Product:</td>
                 <select [(ngModel)]="lineItem.product" class="rounded">
-                    <option *ngFor ="let product of products" [ngValue]='product'>{{product.name}}</option>
+                    <option *ngFor ="let product of products" [ngValue]='product'>{{product.name}} -|- {{product.vendor.name}}</option>
                    
                 </select>
             </tr> 

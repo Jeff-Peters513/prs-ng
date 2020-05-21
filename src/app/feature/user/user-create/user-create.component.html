@@ -5,12 +5,12 @@
     <main class="single">
         <table class="table table-sm">
             <tr>
-                <td>
+                <!-- <td>
                     ID:
                 </td>
                 <td>
                     <input [(ngModel)]="user.id" class="rounded" type="text">
-                </td>
+                </td> -->
             </tr>
             <tr>
                 <td>
@@ -18,6 +18,7 @@
                 </td>
                 <td>
                     <input [(ngModel)]="user.userName" class="rounded" type="text">
+                    <!-- <span *ngIf='!user.userName' style="color:red">*</span> -->
                 </td>
             </tr>
             <tr>
@@ -62,18 +63,18 @@
             </tr>
             <tr>
                 <td>
-                    Reviewer:
+                    Reviewer:   Check box for user to have Reviewer rights=>
                 </td>
                 <td>
-                    <input [(ngModel)]="user.reviewer" class="rounded" type="text">
+                    <input [(ngModel)]="user.reviewer" class="rounded" type="checkbox">
                 </td>
             </tr>
             <tr>
                 <td>
-                    Administator:
+                    Administator:    Check box for user to have Admin rights=>
                 </td>
                 <td>
-                    <input [(ngModel)]="user.admin" class="rounded" type="text">
+                    <input [(ngModel)]="user.admin" class="rounded" type="checkbox">
                 </td>
             </tr>
         </table>

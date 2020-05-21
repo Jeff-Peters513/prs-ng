@@ -29,8 +29,8 @@
             <td>{{user.lastName}}</td>
             <td>{{user.phoneNumber}}</td>
             <td>{{user.email}}</td>
-            <td>{{user.reviewer}}</td>
-            <td>{{user.admin}}</td>
+            <td>{{user.reviewer ? "Yes" : "No"}}</td>
+            <td>{{user.admin ? "Yes" : "No"}}</td>
             <td>
                 <a routerLink='/user/detail/{{user.id}}'>
                     <img width='20' height='20' src='assets/details.png' title="User Details">

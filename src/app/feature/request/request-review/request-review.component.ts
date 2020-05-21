@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Request } from 'src/app/model/request.class';
 import { RequestService } from 'src/app/service/request.service';
-import { Router, ActivatedRoute } from '@angular/router';
 import { User } from 'src/app/model/user.class';
 import { SystemService } from 'src/app/service/system.service';
 
@@ -11,27 +10,25 @@ import { SystemService } from 'src/app/service/system.service';
   styleUrls: ['./request-review.component.css']
 })
 export class RequestReviewComponent implements OnInit {
-  title: string= "PurchaseRequest Review";
+  title: string = "PurchaseRequest Review";
   user: User = null;
   requests: Request[] = []
+  
 
   constructor(private requestSvc: RequestService,
-    private sysSvc: SystemService,
-    private route: ActivatedRoute) { }
+    private sysSvc: SystemService) { }
 
   ngOnInit(): void {
     // confirm logged
     this.sysSvc.checkLogin();
     this.user = this.sysSvc.loggedInUser;
+   
 
-     //get requests in review that are not for this.user
-     this.requestSvc.findByUserIdNot(this.user.id).subscribe(jr => {
+    //get requests in review that are not for this.user
+    this.requestSvc.findByUserIdNot(this.user.id).subscribe(jr => {
       this.requests = jr.data as Request[];
       console.log("List of Requests ", this.requests);
     });
-
-
-
   }
 
 }
