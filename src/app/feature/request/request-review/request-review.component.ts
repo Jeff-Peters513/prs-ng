@@ -22,7 +22,6 @@ export class RequestReviewComponent implements OnInit {
     // confirm logged
     this.sysSvc.checkLogin();
     this.user = this.sysSvc.loggedInUser;
-   
 
     //get requests in review that are not for this.user
     this.requestSvc.findByUserIdNot(this.user.id).subscribe(jr => {

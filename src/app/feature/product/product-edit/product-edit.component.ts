@@ -28,6 +28,10 @@ export class ProductEditComponent implements OnInit {
     this.productSvc.get(this.productId).subscribe(jr => {
       this.product = jr.data as Product;
     });
+    //call for vendors 
+    this.vendorSvc.list().subscribe(jr => {
+      this.vendors = jr.data as Vendor[];
+    });
   }
   edit() {
     this.productSvc.edit(this.product).subscribe(jr => {
@@ -39,5 +43,8 @@ export class ProductEditComponent implements OnInit {
         console.log("***Error editing movie.", this.product, jr.errors);
       }
     });
+  }
+  compVendor(a: Vendor, b: Vendor): boolean {
+    return a && b && a.id === b.id;
   }
 }

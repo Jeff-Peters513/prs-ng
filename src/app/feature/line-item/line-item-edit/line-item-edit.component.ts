@@ -16,6 +16,7 @@ export class LineItemEditComponent implements OnInit {
   title: string = "PurchaseRequestLineItem Edit";
   submitBtnTitle: string = "Edit"
   quantity: number;
+  product: Product = new Product();
   products: Product[] = [];
   lineItem: LineItem = new LineItem();
   requestId: number = 0;

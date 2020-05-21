@@ -1,5 +1,8 @@
 <app-menu></app-menu>
-<span class='component-title'>[{{title}}]</span>
+<section>
+    <span class='component-title'>[{{title}}]</span>
+    <span> | <a routerLink="/user/list">Return to List</a></span>
+</section>
 <p *ngIf='!user'>Loading...</p>
 <div *ngIf='user'>
     <main class="single">
@@ -63,7 +66,15 @@
             </tr>
             <tr>
                 <td>
-                    Reviewer:   Check box for user to have Reviewer rights=>
+                    Note:
+                </td>
+                <td>
+                    <span>A user can create and edit a Pruchase request without Reviewer or Admin rights</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Reviewer: Check box for user to have Reviewer rights=>
                 </td>
                 <td>
                     <input [(ngModel)]="user.reviewer" class="rounded" type="checkbox">
@@ -71,7 +82,7 @@
             </tr>
             <tr>
                 <td>
-                    Administator:    Check box for user to have Admin rights=>
+                    Administator: Check box for user to have Admin rights=>
                 </td>
                 <td>
                     <input [(ngModel)]="user.admin" class="rounded" type="checkbox">
