@@ -38,6 +38,9 @@
                 </td>
                 <td>
                     <input [(ngModel)]="user.firstName" class="rounded" type="text">
+                    <span *ngIf="!user.firstName"><img src="assets/redx.png" width="25"></span>
+                    <span *ngIf="user.firstName"><img src="assets/checkmark.png" width="25"></span>
+
                 </td>
             </tr>
             <tr>
@@ -46,6 +49,8 @@
                 </td>
                 <td>
                     <input [(ngModel)]="user.lastName" class="rounded" type="text">
+                    <span *ngIf="!user.lastName"><img src="assets/redx.png" width="25"></span>
+                    <span *ngIf="user.lastName"><img src="assets/checkmark.png" width="25"></span>
                 </td>
             </tr>
             <tr>
@@ -54,6 +59,9 @@
                 </td>
                 <td>
                     <input [(ngModel)]="user.phoneNumber" class="rounded" type="text">
+                    <span *ngIf="!user.phoneNumber"><img src="assets/redx.png" width="25"></span>
+                    <span *ngIf="user.phoneNumber"><img src="assets/checkmark.png" width="25"></span>
+                
                 </td>
             </tr>
             <tr>
@@ -62,6 +70,8 @@
                 </td>
                 <td>
                     <input [(ngModel)]="user.email" class="rounded" type="text">
+                    <span *ngIf="!user.email"><img src="assets/redx.png" width="25"></span>
+                    <span *ngIf="user.email"><img src="assets/checkmark.png" width="25"></span>
                 </td>
             </tr>
             <tr>
