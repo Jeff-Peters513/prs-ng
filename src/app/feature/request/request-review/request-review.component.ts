@@ -24,7 +24,7 @@ export class RequestReviewComponent implements OnInit {
     this.user = this.sysSvc.loggedInUser;
 
     //get requests in review that are not for this.user
-    this.requestSvc.findByUserIdNot(this.user.id).subscribe(jr => {
+    this.requestSvc.findByStatusAndUserIdNot(this.user.id).subscribe(jr => {
       this.requests = jr.data as Request[];
       console.log("List of Requests ", this.requests);
     });

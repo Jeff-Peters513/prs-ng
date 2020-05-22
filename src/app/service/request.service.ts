@@ -17,7 +17,7 @@ export class RequestService {
   list(): Observable<JsonResponse> {
     return this.http.get(url) as Observable<JsonResponse>;
   }
-  findByUserIdNot(id: number): Observable<JsonResponse> {
+  findByStatusAndUserIdNot(id: number): Observable<JsonResponse> {
     return this.http.get(url+"/list-review/" + id) as Observable<JsonResponse>;
   }
 

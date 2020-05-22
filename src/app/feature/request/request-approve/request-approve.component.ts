@@ -50,7 +50,7 @@ export class RequestApproveComponent implements OnInit {
     if (this.request.status == "Review") {
         this.request.status = "Approved";
         this.edit();
-        this.router.navigateByUrl("request/review");      
+        this.router.navigateByUrl("/request/review");      
       }else {
       console.log("Error in changing Status to Approved!");
     }
@@ -60,7 +60,7 @@ export class RequestApproveComponent implements OnInit {
     if (this.request.status == "Review") {
       this.request.status = "Rejected";
       this.edit();
-      this.router.navigateByUrl("request/review");      
+      this.router.navigateByUrl("/request/review");      
     }else {
     console.log("Error in changing Status to Rejected!");
   }
@@ -70,7 +70,7 @@ export class RequestApproveComponent implements OnInit {
     this.requestSvc.edit(this.request).subscribe(jr => {
       if (jr.errors == null) {
         //success and re-route to request-list page
-        this.router.navigateByUrl("request/list");
+        this.router.navigateByUrl("/request/review");
       }
       else {
         console.log("***Error updating to Review Status.", this.request, jr.errors);

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuItem } from 'src/app/model/menu-item';
+import { User } from 'src/app/model/user.class';
+import { SystemService } from 'src/app/service/system.service';
 
 @Component({
   selector: 'app-menu',
@@ -8,10 +10,12 @@ import { MenuItem } from 'src/app/model/menu-item';
 })
 export class MenuComponent implements OnInit {
   menuItems: MenuItem[]=[];
+  loggedInUser: User = new User();
+  
+  
+  constructor(private sysSvc: SystemService) { }
 
-  constructor() { }
-
-  ngOnInit(): void {
+  ngOnInit(): void {    
     this.menuItems =[
       new MenuItem("Home","/home", "Home"),
       new MenuItem("Login","/user/login", "Login"),
